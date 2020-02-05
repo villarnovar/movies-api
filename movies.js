@@ -12,7 +12,7 @@ function validateResponse(response){
 button.addEventListener('click', function(e){
     e.preventDefault();
     console.log(inputField.value);
-    fetch("http://www.omdbapi.com/?t="+inputField.value+"&apikey=3ed8a8b5")
+    fetch("https://www.omdbapi.com/?t="+inputField.value+"&apikey=3ed8a8b5")
     .then(validateResponse)
 .then(function(response){
     return response.json();
@@ -20,7 +20,7 @@ button.addEventListener('click', function(e){
 });
 
 function processData(data){
-    console.log(data);
+    //console.log(data);
     htmlContent=`<div><img src="${data.Poster}" alt="${data.Title}"></div>
     <div><h2>${data.Title}</h2></div>
     <div><h3>ACTORS: ${data.Actors}</h3></div>
