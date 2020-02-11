@@ -6,6 +6,7 @@ htmlContent="";
 function validateResponse(response){
     if(!response.ok){
         throw Error(response.statusText);
+     
     }
     return response;
 }
@@ -16,6 +17,7 @@ button.addEventListener('click', function(e){
     .then(validateResponse)
 .then(function(response){
     return response.json();
+    alert("Movie not found")
 }).then(processData)
 });
 
@@ -29,9 +31,12 @@ function processData(data){
     <div><h3>PLOT: ${data.Plot}</h3></div>
     <div><h3>RELEASED DATE: ${data.Released}</h3></div>
     <div><h3>RUNTIME: ${data.Runtime}</h3></div>
+    <div><h3>TYPE: ${data.Type}</h3></div>
     <div><h3>RATINGS: ${data.Ratings[0].Value}</h3></div>
+
     `;
     info.innerHTML = htmlContent;
+    
 }
 
 
